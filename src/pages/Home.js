@@ -2,6 +2,10 @@ import React, {useState} from "react";
 import {SearchBar} from "../components/SearchBar";
 import {SearchButton} from "../components/SearchButton";
 import {SearchContainer} from "../components/SearchContainer";
+import {MovieListDropdown} from "../components/MovieListDropdown";
+
+//Data
+let data = require("../movies.json");
 
 const Home = () => {
 
@@ -17,10 +21,11 @@ const Home = () => {
 
     return(
         <>
-            <h1>Search your movie / series </h1>
+            <h1>Search your movie / series</h1>
             <SearchContainer>
                 <SearchBar defaultValue={searchValue} onChange={handleSearchInputChange}/>
                 <SearchButton type={"submit"} onClick={() => onSearch(searchValue)} >Search</SearchButton>
+                <MovieListDropdown/>
             </SearchContainer>
         </>
 
