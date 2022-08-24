@@ -18,13 +18,13 @@ const Home = () => {
     const onSearch = (searchTerm) => {
         setSearchValue(searchTerm)
     }
-    return(
+    return (
         <>
             <h1>Search your movie / series</h1>
             <SearchContainer>
                 <SearchInner>
-                <SearchBar value={searchValue} onChange={handleSearchInputChange}/>
-                <SearchButton type={"submit"} onClick={() => onSearch(searchValue)} >Search</SearchButton>
+                    <SearchBar value={searchValue} onChange={handleSearchInputChange}/>
+                    <SearchButton type={"submit"} onClick={() => onSearch(searchValue)}>Search</SearchButton>
                 </SearchInner>
                 <MovieListDropdown>
                     {data.filter((item) => {
@@ -36,14 +36,15 @@ const Home = () => {
                             fullName.startsWith(searchKeyword) &&
                             fullName !== searchKeyword
                         )
-                    }).map((item) => (
-                        <MovieListDropdownRow
-                            key={item.movieName}
-                            onClick={() => onSearch(item.movieName)}
-                        >
-                            {item.movieName}
-                        </MovieListDropdownRow>
-                    ))}
+                    }).slice(0, 5)
+                        .map((item) => (
+                            <MovieListDropdownRow
+                                key={item.movieName}
+                                onClick={() => onSearch(item.movieName)}
+                            >
+                                {item.movieName}
+                            </MovieListDropdownRow>
+                        ))}
                 </MovieListDropdown>
             </SearchContainer>
         </>
