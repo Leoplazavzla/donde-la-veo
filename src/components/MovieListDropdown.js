@@ -6,4 +6,8 @@ export const MovieListDropdown = styled.div`
     flex-direction: column;
     color: black;
     border: 2px solid gray;
+
+    empty: {
+        border: none;
+    }
 `
