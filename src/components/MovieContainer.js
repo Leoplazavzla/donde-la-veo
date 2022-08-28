@@ -6,13 +6,11 @@ export const MovieContainer = styled.div`
     align-items: center; 
     background-color: grey;
     border-radius: 3%;
-    width: 200px;
+    width: 100%;
     height: auto;
 
-    .img{
-        width 180px;
-        height: 280px;
-        border: 2px solid black;
+    .img img{
+        width 100%;
     }
     
     .title{
