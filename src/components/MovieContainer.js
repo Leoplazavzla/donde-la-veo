@@ -8,17 +8,25 @@ export const MovieContainer = styled.div`
     border-radius: 3%;
     width: 100%;
     height: auto;
+    text-align: center;
+    
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
 
     .img img{
         width 100%;
     }
     
     .title{
-        font-size: 24px
+        font-size: 24px;
+        margin-bottom: 10px;
     }
     
     .year{
         font-size: 12px;
+        margin-bottom: 20px;
     }
     
     .stream{

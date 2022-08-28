@@ -9,7 +9,9 @@ const AppRoutes = () => {
     return (
         <Routes>
             <Route exact path={paths.home} element={<Home/>}/>
-            <Route path={`${paths.movieDetail}/:movieName`} element={<MovieDetail/>}/>
+            <Route path={`${paths.movieDetail}/:movieId`} element={<MovieDetail/>}/>
+            <Route path={`${paths.seriesDetail}/:seriesId`} element={<MovieDetail/>}/>
+
         </Routes>
 
     )

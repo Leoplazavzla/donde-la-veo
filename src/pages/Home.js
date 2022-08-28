@@ -1,21 +1,16 @@
 import React, {useEffect, useState} from "react";
 import {SearchBar} from "../components/SearchBar";
-import {SearchButton} from "../components/SearchButton";
 import {SearchContainer} from "../components/SearchContainer";
-import {MovieListDropdown} from "../components/MovieListDropdown";
-import {MovieListDropdownRow} from "../components/MovieListDropdownRow";
 import {SearchInner} from "../components/SearchInner";
 import * as MovieApi from "../Api/TMDB"
-import HBO from "../images/hbo.png";
 import {MovieContainer} from "../components/MovieContainer";
 import {MoviesOrSeriesDataGrid} from "../components/MoviesOrSeriesDataGrid";
-
-//Data
-let data = require("../movies.json");
+import {Link} from "react-router-dom";
+import paths from "../resources/paths";
 
 const Home = () => {
 
-    const [searchValue, setSearchValue] = useState("star wars");
+    const [searchValue, setSearchValue] = useState('');
     const [searchedData, setSearchedData] = useState([])
 
     const handleSearchInputChange = (e) => {
@@ -23,14 +18,18 @@ const Home = () => {
     }
 
     useEffect(() => {
-        MovieApi.searchMoviesOrSeries(encodeURI(searchValue))
-            .then((response) => setSearchedData(response.results))
+        if(searchValue !== ''){
+            setTimeout(() => {
+                MovieApi.searchMoviesOrSeries(encodeURI(searchValue))
+                    .then((response) => {
+                        setSearchedData(response.results)
+                    })
+
+
+            }, 2000)
+
+        }
     },[searchValue])
-
-
-    const onSearch = (searchTerm) => {
-        setSearchValue(searchTerm)
-    }
 
     return (
         <>
@@ -38,25 +37,40 @@ const Home = () => {
             <SearchContainer>
                 <SearchInner>
                     <SearchBar value={searchValue} onChange={handleSearchInputChange} placeholder={searchValue}/>
-                    <SearchButton type={"submit"} onClick={() => onSearch(searchValue)}>Search</SearchButton>
                 </SearchInner>
             </SearchContainer>
             <MoviesOrSeriesDataGrid>
                 {searchedData.map((item) => (
-
-                    <MovieContainer key={item.id}>
+                    item.poster_path&&
+                    <MovieContainer key={item.media_type+item.id}>
+                        <Link to={`/${item.media_type}/${item.id}`}>
                         <div className="img">
                             <img src={`https://image.tmdb.org/t/p/w500/.${item.poster_path}`} alt={item.title}/>
                         </div>
-                        <div className="title">
-                            {item.title}
-                        </div>
-                        <div className="year">
-                            {item.release_date}
-                        </div>
+                            {item.media_type === 'movie' ?
+                                <div>
+                                    <div className="title">
+                                          {item.title}
+                                    </div>
+                                    <div className="year">
+                                        {item.release_date}
+                                    </div>
 
+                                </div>
+                            :
+                                <div>
+                                    <div className="title">
+                                         {item.original_name}
+                                    </div>
+                                    <div className="year">
+                                        {item.first_air_date}
+                                    </div>
+                                </div>
+                                    }
+
+
+                        </Link>
                     </MovieContainer>
-
                 ))}
             </MoviesOrSeriesDataGrid>
         </>
