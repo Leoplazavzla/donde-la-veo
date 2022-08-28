@@ -1,5 +1,5 @@
 const URL = 'https://api.themoviedb.org/3'
-const key = 'api_key=a2fde0d5aa53d5501214e8cf8bbaa148';
+const key = process.env.REACT_APP_TMDB_API_KEY;
 
 export const getMovies = async ()  => {
     try {
