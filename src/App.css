@@ -2,9 +2,14 @@
   text-align: center;
 }
 
-.App-header {
+.app-background{
   background-color: #282c34;
-  min-height: 100vh;
+  text-align: center;
+
+}
+
+.App-header {
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,4 +20,24 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.header{
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 30px;
+  font-weight: bolder;
+
+}
+
+.footer{
+  position: static;
+  font-size: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer img{
+  width: 120px;
 }

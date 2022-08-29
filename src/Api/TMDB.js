@@ -37,12 +37,11 @@ export const searchMoviesOrSeries = async (value) => {
     }
 }
 
-export const getTMDBConfiguration = async () => {
+export const getStreamService = async (id) => {
     try {
-        const request = await fetch(`${URL}/configuration?${key}`);
-            if(request === 200){
-                const config = await request.json();
-                return config
+        const request = await fetch(`${URL}/movie/${id}/watch/providers?${key}`);
+            if(request.status === 200){
+                return await request.json()
         }
     }catch (e) {
         console.log(e)
