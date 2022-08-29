@@ -1,12 +1,11 @@
 const URL = 'https://api.themoviedb.org/3'
 const key = process.env.REACT_APP_TMDB_API_KEY;
 
-export const getMovies = async ()  => {
+export const getMovie = async (id)  => {
     try {
-        const request = await fetch(`${URL}/movie/550?${key}`);
+        const request = await fetch(`${URL}/movie/${id}?${key}`);
         if(request.status === 200){
-            const data = await request.json();
-            console.log(data)
+            return await request.json()
         }
     }catch (error) {
         console.log(error)

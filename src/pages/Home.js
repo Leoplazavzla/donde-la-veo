@@ -6,7 +6,6 @@ import * as MovieApi from "../Api/TMDB"
 import {MovieContainer} from "../components/MovieContainer";
 import {MoviesOrSeriesDataGrid} from "../components/MoviesOrSeriesDataGrid";
 import {Link} from "react-router-dom";
-import paths from "../resources/paths";
 
 const Home = () => {
 
