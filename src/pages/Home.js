@@ -13,6 +13,8 @@ const Home = () => {
     const [searchedData, setSearchedData] = useState([])
 
     const handleSearchInputChange = (e) => {
+        e.preventDefault();
+
         setSearchValue(e.target.value)
     }
 
@@ -23,8 +25,6 @@ const Home = () => {
                     .then((response) => {
                         setSearchedData(response.results)
                     })
-
-
             }, 2000)
 
         }
@@ -35,12 +35,12 @@ const Home = () => {
             <h1>Search your movie / series</h1>
             <SearchContainer>
                 <SearchInner>
-                    <SearchBar value={searchValue} onChange={handleSearchInputChange} placeholder={searchValue}/>
+                    <SearchBar defaultValue={searchValue} onKeyUp={handleSearchInputChange} placeholder={searchValue} />
                 </SearchInner>
             </SearchContainer>
             <MoviesOrSeriesDataGrid>
                 {searchedData.map((item) => (
-                    item.poster_path&&
+                    item.poster_path &&
                     <MovieContainer key={item.media_type+item.id}>
                         <Link to={`/${item.media_type}/${item.id}`}>
                         <div className="img">
@@ -66,8 +66,6 @@ const Home = () => {
                                     </div>
                                 </div>
                                     }
-
-
                         </Link>
                     </MovieContainer>
                 ))}

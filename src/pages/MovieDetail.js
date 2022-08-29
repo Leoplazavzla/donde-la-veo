@@ -19,12 +19,15 @@ const MovieDetail = () => {
     return(
         movieDetails &&
         <MovieOrSeriesDetails>
-            <h1>{movieDetails.original_title}</h1>
-            <div className={"image"}>
+            <div className={"wrapper"}>
+            <div className="image">
                 <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`} alt={movieDetails.original_title}/>
             </div>
+            <h1>{movieDetails.original_title}</h1>
             <div>{movieDetails.overview}</div>
             <div>{movieDetails.original_title}</div>
+
+            </div>
 
 
 
