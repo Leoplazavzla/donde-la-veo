@@ -25,5 +25,8 @@ export const MovieOrSeriesDetails = styled.div`
         flex-direction: column;
     }
     
+    .watch-provider{
+        color: black;
+    }
 
 `
