@@ -19,7 +19,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        if(searchValue !== ''){
+        if(searchValue.length >= 3){
             setTimeout(() => {
                 MovieApi.searchMoviesOrSeries(encodeURI(searchValue))
                     .then((response) => {

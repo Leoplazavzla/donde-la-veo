@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import * as MovieAPI from "../Api/TMDB"
 import {MovieOrSeriesDetails} from "../components/MovieOrSeriesDetails";
-import Select from "react-select";
+import Select, {components} from "react-select";
 
 const MovieDetail = () => {
     const movieId = useParams()
@@ -12,7 +12,9 @@ const MovieDetail = () => {
     const [countrySelected, setCountrySelected] = useState('');
     const [optionsArray, setOptionsArray] = useState([]);
     const [streamData, setStreamData] = useState([]);
-    const [year, setYear] = useState('');
+
+    const {Option} = components;
+
 
 
     useEffect(() => {
@@ -53,6 +55,18 @@ const MovieDetail = () => {
         getCountries()
     }
 
+    const IconOption = props => (
+        <Option {...props}>
+            <img
+                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${props.data.value}.svg`}
+                style={{width: 36, marginRight: 12}}
+                alt={props.data.value}
+            />
+            {props.data.value}
+
+        </Option>
+    );
+
     return (
         movieDetails &&
         <MovieOrSeriesDetails>
@@ -72,10 +86,12 @@ const MovieDetail = () => {
                     <div className={"countries"}>
                     {streamProvider &&
                         <div className={"select"}>
+                            <span></span>
                             <Select
-                                deafultValue={countrySelected}
+                                //defaultValue={countrySelected}
                                 onChange={findWatchProviderByCountry}
                                 options={optionsArray}
+                                components={{Option: IconOption}}
                                 placeholder={"Please select your country"}
                             />
                         </div>
