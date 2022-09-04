@@ -2,8 +2,10 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import * as SeriesAPI from "../Api/TMDBSeries"
 import {MovieOrSeriesDetails} from "../components/MovieOrSeriesDetails";
-import Select from "react-select";
+import Select, {components} from "react-select";
 import BackButton from "../components/buttons/BackButton";
+
+const {Option} = components;
 
 const MovieDetail = () => {
     const seriesId = useParams()
@@ -31,6 +33,17 @@ const MovieDetail = () => {
     const findWatchProviderByCountry = (value) => {
         setCountrySelected(value.value)
     }
+
+    const IconOption = props => (
+        <Option {...props}>
+            <img
+                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${props.data.value}.svg`}
+                style={{width: 36, marginRight: 12}}
+                alt={props.data.value}
+            />
+            {props.data.value}
+        </Option>
+    );
 
     return (
         <>
@@ -60,6 +73,7 @@ const MovieDetail = () => {
                                             deafultValue={countrySelected}
                                             onChange={findWatchProviderByCountry}
                                             options={seriesProvider.map(item => ({label: item, value: item}))}
+                                            components={{Option: IconOption}}
                                             placeholder={"Please select your country"}
                                         />
                                     </div>

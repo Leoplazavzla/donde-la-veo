@@ -8,6 +8,7 @@ export const MovieOrSeriesDetails = styled.div`
     flex-direction: column;
     background-color: #6d7380;
     border-radius: 5px;
+    color: aliceblue;
     
     .poster{
         display: flex;
@@ -35,6 +36,11 @@ export const MovieOrSeriesDetails = styled.div`
     
     .title{
         margin-bottom: 15px;
+    }
+    
+    .title span{
+        color: #F3B51D;
+        font-weight: bold;
     }
     
     .overview{
@@ -71,6 +77,7 @@ export const MovieOrSeriesDetails = styled.div`
     
     .select{
         min-width: 40%;
+        color: black;
     }
     
     .no-streaming{
