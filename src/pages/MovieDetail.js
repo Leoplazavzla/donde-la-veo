@@ -2,12 +2,10 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import * as MovieAPI from "../Api/TMDB"
 import {MovieOrSeriesDetails} from "../components/MovieOrSeriesDetails";
-import {countries} from "../resources/countries";
 import Select from "react-select";
 
 const MovieDetail = () => {
     const movieId = useParams()
-    const country = countries;
     const fullArray = [];
     const [movieDetails, setMovieDetails] = useState({});
     const [streamProvider, setStreamProvider] = useState([]);
@@ -70,13 +68,17 @@ const MovieDetail = () => {
                     <div>{movieDetails.original_title}</div>
 
                     {streamProvider &&
-                        <Select deafultValue={countrySelected} onChange={findWatchProviderByCountry}
-                                options={optionsArray}/>
+                        <Select
+                            deafultValue={countrySelected}
+                            onChange={findWatchProviderByCountry}
+                            options={optionsArray}
+                            placeholder={"Please select your country"}
+                        />
                     }
                     {countrySelected.length> 0 ?
                         <div>
                             {streamData[countrySelected].hasOwnProperty('flatrate')  ?
-                                <div>
+                                <div className={"stream-provider-img"}>
                                     <span>You can watch it on</span>
                                     <img
                                         src={`https://image.tmdb.org/t/p/original${streamData[countrySelected].flatrate[0].logo_path}`}/>
@@ -86,7 +88,7 @@ const MovieDetail = () => {
                             }
                         </div>
                         :
-                        <>Please select your country</>
+                        <></>
                     }
                 </div>
             </div>

@@ -7,7 +7,7 @@ function App() {
   return (
       <div className={"app-background"}>
         <Header/>
-        <div className="App-header">
+        <div >
           <AppRoutes/>
         </div>
         <Footer/>

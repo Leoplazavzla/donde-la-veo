@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const MovieOrSeriesDetails = styled.div`
     max-width: 90%;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    background-color: grey;
+    background-color: lightGrey;
     
     .image{
         width: 100%;
@@ -27,6 +28,14 @@ export const MovieOrSeriesDetails = styled.div`
     
     .watch-provider{
         color: black;
+    }
+    
+    .stream-provider-img{
+        width: 40%
+    }
+    
+    .stream-provider-img img{
+    width: 20%
     }
 
 `
