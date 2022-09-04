@@ -6,4 +6,5 @@ export const SearchContainer = styled.div`
     align-items: center;
     justify-content: center;
     color: white;
+    width: 100%;
 `

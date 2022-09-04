@@ -26,7 +26,7 @@
 }
 
 main{
-  min-height: 77vh;
+  min-height: 79vh;
   background-color: #282c34;
 }
 
@@ -49,14 +49,14 @@ main{
 
 .header span{
   margin-left: 2px;
-  color: darkgoldenrod;
+  color: #F3B51D;
   font-size: 40px;
 }
 
 .footer{
   background-color: #282c34;
   margin-top: auto;
-  padding: 3em;
+  padding: 2em 3em;
   display: flex;
   color: aliceblue;
   justify-content: space-between;
