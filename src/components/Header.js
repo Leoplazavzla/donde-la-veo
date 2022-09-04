@@ -2,6 +2,9 @@ import {Link} from "react-router-dom";
 
 export const Header = () => {
     return(
-        <Link to={"/"} className={"header"}>Donde La Veo?</Link>
+        <div className={"header"}>
+            <Link to={"/"} >Dónde La Veo<span>?</span> </Link>
+
+        </div>
     )
 }

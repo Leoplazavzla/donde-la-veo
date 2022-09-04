@@ -8,12 +8,11 @@
   justify-content: center;
   background-color: #282c34;
   text-align: center;
-  min-height: 100vh;
+
 
 }
 
 .App-header {
-  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,19 +25,40 @@
   color: #61dafb;
 }
 
+main{
+  min-height: 77vh;
+  background-color: #282c34;
+}
+
 .header{
+
+  font-weight: bolder;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  background-color: #282c34;
+}
+
+.header a{
   text-decoration: none;
   color: aliceblue;
   font-size: 30px;
-  font-weight: bolder;
+}
 
+.header span{
+  margin-left: 2px;
+  color: darkgoldenrod;
+  font-size: 40px;
 }
 
 .footer{
-  position: static;
-  font-size: 15px;
-  width: 100%;
+  background-color: #282c34;
+  margin-top: auto;
+  padding: 3em;
   display: flex;
+  color: aliceblue;
   justify-content: space-between;
 }
 

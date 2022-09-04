@@ -32,8 +32,8 @@ const Home = () => {
 
     return (
         <>
-            <h1>Search your movie / series</h1>
             <SearchContainer>
+                <h1>Search your movie / series</h1>
                 <SearchInner>
                     <SearchBar defaultValue={searchValue} onKeyUp={handleSearchInputChange} placeholder={searchValue} />
                 </SearchInner>

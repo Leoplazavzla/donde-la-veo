@@ -5,11 +5,11 @@ import {Header} from "./components/Header";
 
 function App() {
   return (
-      <div className={"app-background"}>
+      <div >
         <Header/>
-        <div >
+        <main >
           <AppRoutes/>
-        </div>
+        </main>
         <Footer/>
       </div>
   );

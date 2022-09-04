@@ -10,8 +10,9 @@ const MovieDetail = () => {
     const [movieDetails, setMovieDetails] = useState({});
     const [streamProvider, setStreamProvider] = useState([]);
     const [countrySelected, setCountrySelected] = useState('');
-    const [optionsArray, setOptionsArray] = useState([])
-    const [streamData, setStreamData] = useState([])
+    const [optionsArray, setOptionsArray] = useState([]);
+    const [streamData, setStreamData] = useState([]);
+    const [year, setYear] = useState('');
 
 
     useEffect(() => {
@@ -52,31 +53,35 @@ const MovieDetail = () => {
         getCountries()
     }
 
-    console.log(streamData)
-
     return (
         movieDetails &&
         <MovieOrSeriesDetails>
             <div className={"wrapper"}>
-                <div className="image">
+                <div className="poster">
                     <img src={`https://image.tmdb.org/t/p/original/${movieDetails.poster_path}`}
                          alt={movieDetails.original_title}/>
                 </div>
                 <div className={"details-wrapper"}>
-                    <h1>{movieDetails.original_title}</h1>
-                    <div>{movieDetails.overview}</div>
-                    <div>{movieDetails.original_title}</div>
-
+                    <div className={"title"}>
+                        <h1>{movieDetails.original_title}</h1>
+                        <span>{movieDetails.release_date}</span>
+                    </div>
+                    <div className={"overview"}>
+                        <div>{movieDetails.overview}</div>
+                    </div>
+                    <div className={"countries"}>
                     {streamProvider &&
-                        <Select
-                            deafultValue={countrySelected}
-                            onChange={findWatchProviderByCountry}
-                            options={optionsArray}
-                            placeholder={"Please select your country"}
-                        />
+                        <div className={"select"}>
+                            <Select
+                                deafultValue={countrySelected}
+                                onChange={findWatchProviderByCountry}
+                                options={optionsArray}
+                                placeholder={"Please select your country"}
+                            />
+                        </div>
                     }
                     {countrySelected.length> 0 ?
-                        <div>
+                        <div className={"stream-provider"}>
                             {streamData[countrySelected].hasOwnProperty('flatrate')  ?
                                 <div className={"stream-provider-img"}>
                                     <span>You can watch it on</span>
@@ -90,6 +95,7 @@ const MovieDetail = () => {
                         :
                         <></>
                     }
+                </div>
                 </div>
             </div>
         </MovieOrSeriesDetails>

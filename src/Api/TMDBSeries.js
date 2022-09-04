@@ -23,3 +23,14 @@ export const searchSeries = async (value) => {
     }
 }
 
+export const getSeriesWatchProviders = async (id) => {
+    try {
+        const request = await fetch(`${URL}/tv/${id}/watch/providers?${key}`);
+        if (request.status === 200){
+            return await request.json()
+        }
+    }catch (e) {
+        console.log(e)
+    }
+}
+
