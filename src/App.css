@@ -65,3 +65,25 @@ main{
 .footer img{
   width: 120px;
 }
+
+.back-button{
+  margin-bottom: 10px;
+
+}
+
+.back-button button{
+  background-color: #6d7380;
+  border: none;
+  margin-left: 45px;
+  border-radius: 5px;
+  color: aliceblue;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 7px 10px;
+
+  cursor: pointer;
+}
+
+.back-button button:hover{
+  background-color: #898d9e;
+}

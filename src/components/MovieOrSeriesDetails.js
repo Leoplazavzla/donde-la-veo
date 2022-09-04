@@ -6,7 +6,7 @@ export const MovieOrSeriesDetails = styled.div`
     padding: 30px 10px;
     display: flex;
     flex-direction: column;
-    background-color: lightGrey;
+    background-color: #6d7380;
     border-radius: 5px;
     
     .poster{
@@ -72,5 +72,11 @@ export const MovieOrSeriesDetails = styled.div`
     .select{
         min-width: 40%;
     }
+    
+    .no-streaming{
+        margin-left: 100px;
+    }
+    
+    
 
 `

@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import * as MovieAPI from "../Api/TMDB"
 import {MovieOrSeriesDetails} from "../components/MovieOrSeriesDetails";
 import Select, {components} from "react-select";
+import BackButton from "../components/buttons/BackButton";
 
 const MovieDetail = () => {
     const movieId = useParams()
@@ -14,8 +15,6 @@ const MovieDetail = () => {
     const [streamData, setStreamData] = useState([]);
 
     const {Option} = components;
-
-
 
     useEffect(() => {
         MovieAPI.getMovie(movieId.movieId)
@@ -32,7 +31,6 @@ const MovieDetail = () => {
                 setStreamProvider(Object.keys(response.results)
                 )
             })
-
     }, [])
 
     useEffect(() => {
@@ -63,13 +61,16 @@ const MovieDetail = () => {
                 alt={props.data.value}
             />
             {props.data.value}
-
         </Option>
     );
 
     return (
-        movieDetails &&
+        <>
+            {movieDetails &&
         <MovieOrSeriesDetails>
+            <div className={"back-button"}>
+                <BackButton/>
+            </div>
             <div className={"wrapper"}>
                 <div className="poster">
                     <img src={`https://image.tmdb.org/t/p/original/${movieDetails.poster_path}`}
@@ -105,7 +106,7 @@ const MovieDetail = () => {
                                         src={`https://image.tmdb.org/t/p/original${streamData[countrySelected].flatrate[0].logo_path}`}/>
                                 </div>
                                 :
-                                <>No streaming service available</>
+                                <span className={"no-streaming"}>No streaming service available</span>
                             }
                         </div>
                         :
@@ -115,8 +116,9 @@ const MovieDetail = () => {
                 </div>
             </div>
         </MovieOrSeriesDetails>
+            }
+        </>
     )
-
 }
 
 export default MovieDetail;
