@@ -33,9 +33,8 @@ const Home = () => {
     return (
         <>
             <SearchContainer>
-                <h1>Search your movie / series</h1>
                 <SearchInner>
-                    <SearchBar defaultValue={searchValue} onKeyUp={handleSearchInputChange} placeholder={searchValue} />
+                    <SearchBar defaultValue={searchValue} onKeyUp={handleSearchInputChange} placeholder={'Search your movie or series'} />
                 </SearchInner>
             </SearchContainer>
             <MoviesOrSeriesDataGrid>
