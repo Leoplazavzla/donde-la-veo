@@ -14,7 +14,6 @@ export const MovieOrSeriesDetails = styled.div`
         display: flex;
         justify-content: center;
         width: 28%;
-        
     }
   
     .poster img{
@@ -58,7 +57,6 @@ export const MovieOrSeriesDetails = styled.div`
     .stream-provider-img{
         display: flex;
         align-items: center;
-        margin-left: 100px;
     }
     
     .stream-provider-img img{
@@ -71,7 +69,8 @@ export const MovieOrSeriesDetails = styled.div`
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
+        gap: 30px;
         padding: 20px;
     }
     
@@ -82,6 +81,50 @@ export const MovieOrSeriesDetails = styled.div`
     
     .no-streaming{
         margin-left: 100px;
+    }
+    
+    @media (max-width: 680px){
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .countries{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .select{
+            width: 100%;
+            margin-bottom: 20px;
+            color: black;
+        }
+        
+        .no-streaming{
+            margin: auto;
+        }
+        
+        .poster{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .stream-provider{
+            display: flex;
+            width: 100%;
+            justify-items: center;
+        }
+        .stream-provider-img{
+            align-items: center;
+            
+        }
+        .stream-provider-img img{
+            width: 30%;
+            border-radius: 50%;
+            margin-left: 12px;
+        }
     }
     
     
