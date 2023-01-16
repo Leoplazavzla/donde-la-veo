@@ -5,6 +5,6 @@ export const SearchContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
-    width: 100%;
+    color: black;
+    
 `

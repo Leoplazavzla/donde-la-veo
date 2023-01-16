@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
 export const SearchInner = styled.div`
-    display: flex;
+   width: 70%;
+   display: flex;
+   justify-content: center;
 `
